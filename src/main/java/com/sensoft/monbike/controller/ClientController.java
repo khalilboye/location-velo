@@ -49,10 +49,7 @@ public class ClientController {
     }
 
 
-
-
-
-        @DeleteMapping("/books/{id}")
+     @DeleteMapping("/books/{id}")
         void deleteBook(@PathVariable Long id) {
             clientServices.deleteById(id);
         }

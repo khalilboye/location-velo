@@ -3,6 +3,7 @@ package com.sensoft.monbike.service;
 
 import com.sensoft.monbike.dto.ClientDto;
 import com.sensoft.monbike.entities.Client;
+import com.sensoft.monbike.error.ClientNotFoundException;
 import com.sensoft.monbike.mapper.ClientMapper;
 import com.sensoft.monbike.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,9 @@ public class ClientServices {
 
     public ClientDto findClientByTel(String tel) {
         Optional<Client> optionalClient= clientRepository.findClientByTel(tel);
-
+         if(optionalClient==null){
+             throw new ClientNotFoundException("Client not found"+optionalClient.get().getId());
+         }
         return  clientMapper.getOneClient(optionalClient);
     }
 }

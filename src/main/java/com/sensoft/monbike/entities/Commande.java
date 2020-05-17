@@ -18,10 +18,14 @@ public class Commande {
     private LocalDate getDatelivraisonreel;
     @OneToOne(cascade = CascadeType.ALL)
     private Client client;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Reparation reparation;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   /* @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="reparation_id", nullable=false)
     private Reparation reparation;
+
+    */
 
     public Reparation getReparation() {
         return reparation;

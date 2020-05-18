@@ -35,7 +35,14 @@ public class ClientServices {
     }
 
     public Optional<Client> findClientById(Long id) {
-      return   clientRepository.findById(id);
+
+        Optional<Client> client = clientRepository.findById(id);
+
+        if(!client.isPresent() ||  client==null ){
+           throw new  ClientNotFoundException(id);
+        }
+
+        return  client;
     }
 
     public void deleteById(Long id) {

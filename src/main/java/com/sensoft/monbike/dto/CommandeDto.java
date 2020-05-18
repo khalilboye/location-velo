@@ -1,5 +1,8 @@
 package com.sensoft.monbike.dto;
 
+import com.sensoft.monbike.entities.Client;
+import com.sensoft.monbike.entities.Reparation;
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
@@ -12,8 +15,8 @@ public class CommandeDto {
     private LocalDate dateCommande;
     private LocalDate datelivraisonprevu;
     private LocalDate getDatelivraisonreel;
-    private ClientDto clientDto;
-    private Set<ReparationDto> reparationDtos;
+    private Client client;
+    private Reparation reparation;
 
 
     public CommandeDto() {
@@ -27,20 +30,20 @@ public class CommandeDto {
         this.numeroCommende = numeroCommende;
     }
 
-    public ClientDto getClientDto() {
-        return clientDto;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientDto(ClientDto clientDto) {
-        this.clientDto = clientDto;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public Set<ReparationDto> getReparationDtos() {
-        return reparationDtos;
+    public Reparation getReparation() {
+        return reparation;
     }
 
-    public void setReparationDtos(Set<ReparationDto> reparationDtos) {
-        this.reparationDtos = reparationDtos;
+    public void setReparation(Reparation reparation) {
+        this.reparation = reparation;
     }
 
     public Long getId() {

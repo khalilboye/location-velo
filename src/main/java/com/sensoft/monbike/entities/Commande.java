@@ -18,7 +18,7 @@ public class Commande {
     private LocalDate getDatelivraisonreel;
     @OneToOne(cascade = CascadeType.ALL)
     private Client client;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Reparation reparation;
 
    /* @ManyToOne(fetch = FetchType.LAZY, optional = false)

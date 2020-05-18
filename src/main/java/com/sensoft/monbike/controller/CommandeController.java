@@ -1,13 +1,17 @@
 package com.sensoft.monbike.controller;
 
+import com.sensoft.monbike.dto.CommandeDto;
 import com.sensoft.monbike.entities.Commande;
 import com.sensoft.monbike.service.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("alquiler")
@@ -26,33 +30,26 @@ public class CommandeController {
         //return 201 instead of 200
         @ResponseStatus(HttpStatus.CREATED)
         @PostMapping("/add-commande")
-        void newCommande(@RequestBody @Valid Commande commande) {
+        public Commande  newCommande(@RequestBody @Valid CommandeDto commandeDto) {
 
-           commandeService.save(commande); //reparationServices.save(clientDto);
+          return commandeService.save(commandeDto); //reparationServices.save(clientDto);
         }
-/*
         // Find
-        @GetMapping("/client/{id}")
-        Client findOneCar(@PathVariable @Min(1) Long id) {
-            return reparationServices.findClientById(id)
-                    .orElseThrow(() -> new ClientNotFoundException(id));
+        @GetMapping("/commande")
+        Optional<List<Commande>> findbycommeByname(@Param("nom") String nom) {
+                return commandeService.findClientBynom(nom);
+                      //  .orElseThrow(() -> new ClientNotFoundException(nom));
         }
 
-    // Find
-    @GetMapping("/client")
-    Client findbynumero(@Param("tel") String tel) {
-        return reparationServices.findClientByTel(tel)
-                .orElseThrow(() -> new ClientNotFoundException(tel));
-    }
-
-
-
-        @DeleteMapping("/books/{id}")
-        void deleteBook(@PathVariable Long id) {
-            reparationServices.deleteById(id);
+        @GetMapping("/commande-by-date")
+        Optional<List<Commande>> findCommandeBetweenDate(@Param("datedebut") String datedebut , @Param("datefin") String datefin ) {
+                return commandeService.findClientBetweenDate(datedebut, datefin);
+                //  .orElseThrow(() -> new ClientNotFoundException(nom));
         }
 
-
- */
-
+        @GetMapping("/num-commande")
+        Optional<List<Commande>> findbycommeBynumero(@Param("nom") Long numero) {
+                return commandeService.findClientBynumero(numero);
+                //  .orElseThrow(() -> new ClientNotFoundException(nom));
+        }
 }

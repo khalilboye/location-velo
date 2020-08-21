@@ -3,18 +3,49 @@ package com.sensoft.monbike.entities;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
+@Table(name = Client.TABLE_NAME)
 public class Client {
+
+    private static final long serialVersionUID = 1505122041950251207L;
+
+
+    public static final String TABLE_NAME = "CLIENT";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    @Column(columnDefinition = "integer")
+    private Long id;
+
+    @Column(name = "CIVILITE")
+    private String civilite;
+
+    @NotEmpty()
+    @Size(max = 64)
+    @Column(name = "NOM")
     private String nom;
+
+    @NotEmpty
+    @Size(max = 64)
+    @Column(name = "PRENOM")
     private String prenom;
-    private String adresse;
-    @Column (unique = true)
-    private String tel;
+
+    @NotEmpty
+    @Size(max = 128)
+    @Column(name = "EMAIL", unique = true, nullable = false)
+    @Email
+    private String email;
+
+    @Column(name = "STATUT")
+    private String statut;
+
+    @Column(name = "LAST_CONNECTION_DAY")
+    private Date lastConnectionDay;
 
     public Long getId() {
         return id;
@@ -22,6 +53,14 @@ public class Client {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCivilite() {
+        return civilite;
+    }
+
+    public void setCivilite(String civilite) {
+        this.civilite = civilite;
     }
 
     public String getNom() {
@@ -40,19 +79,27 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTel() {
-        return tel;
+    public String getStatut() {
+        return statut;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public Date getLastConnectionDay() {
+        return lastConnectionDay;
+    }
+
+    public void setLastConnectionDay(Date lastConnectionDay) {
+        this.lastConnectionDay = lastConnectionDay;
     }
 }

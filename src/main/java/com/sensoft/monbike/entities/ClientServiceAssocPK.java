@@ -11,7 +11,6 @@ public class ClientServiceAssocPK implements Serializable {
 
 	private static final long serialVersionUID = 1945822041950251207L;
 
-
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_CLIENT")
 	private Client client;
@@ -35,6 +34,10 @@ public class ClientServiceAssocPK implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
+
+
+
+
 
 
 }

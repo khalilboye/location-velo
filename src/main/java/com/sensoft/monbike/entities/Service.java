@@ -32,17 +32,6 @@ public class Service implements Serializable {
 	@Column(name = "COULEUR")
 	private String couleur;
 
-	@Column(name = "BESOIN_SIRET")
-	private Boolean besoinSiret;
-
-	@Column(name = "PRE_COCHE")
-	private Boolean preCoche;
-
-	@Column(name = "URL_CIBLE")
-	private String urlCible;
-
-	@Column(name = "INDICE_TRI")
-	private Integer indiceTri;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// EQUALS & HASHCODE //
@@ -75,8 +64,7 @@ public class Service implements Serializable {
 	@Override
 	public String toString() {
 		return "SERVICE{" + "ID=" + id + ", NOM='" + nom + "'" + ", TITRE='" + titre + "'" + ", DESCRIPTION='"
-				+ description + "'" + ", URI_IMAGE='" + uriImage + "'" + ", COULEUR='" + couleur + "'" + ", BESOIN_SIRET='" + besoinSiret + "'"
-				+ ", PRE_COCHE='" + preCoche + "'" + ", URL_CIBLE='" + urlCible + "'" + ", INDICE_TRI='" + indiceTri + "'" + '}';
+				+ description + "'" + ", URI_IMAGE='" + uriImage + "'" + ", COULEUR='" + couleur + "'" +  '}';
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,31 +115,5 @@ public class Service implements Serializable {
 
 	public void setCouleur(String couleur) { this.couleur = couleur; }
 
-	public boolean isBesoinSiret() {
-		return besoinSiret;
-	}
 
-	public void setBesoinSiret(boolean besoinSiret) {
-		this.besoinSiret = besoinSiret;
-	}
-
-	public boolean isPreCoche() {
-		return preCoche;
-	}
-
-	public void setPreCoche(boolean preCoche) {
-		this.preCoche = preCoche;
-	}
-
-	public String getUrlCible() {
-		return urlCible;
-	}
-
-	public void setUrlCible(String urlCible) {
-		this.urlCible = urlCible;
-	}
-
-	public Integer getIndiceTri() { return indiceTri; }
-
-	public void setIndiceTri(Integer indiceTri) { this.indiceTri = indiceTri; }
 }

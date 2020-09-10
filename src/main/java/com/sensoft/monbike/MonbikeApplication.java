@@ -24,11 +24,12 @@ public class MonbikeApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Client client = new Client();
+       Client client = new Client();
         client.setPrenom("ibraa");
         client.setNom("boye");
         client.setTel("778261466");
         client.setAdresse("dakar");
+        client.setEmail("ibr@gmail.com");
 
         Reparation reparation = new Reparation();
         reparation.setLibelle("velo");
@@ -39,5 +40,7 @@ public class MonbikeApplication implements CommandLineRunner {
       Long  l =   (long)(Math.random()*100000 + 3122000000L);
 
       System.out.println(l);
+
+
     }
 }

@@ -24,7 +24,6 @@ public class Commande {
    /* @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="reparation_id", nullable=false)
     private Reparation reparation;
-
     */
 
     public Reparation getReparation() {

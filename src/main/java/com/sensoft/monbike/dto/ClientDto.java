@@ -15,6 +15,15 @@ public class ClientDto {
     private String prenom;
     private String adresse;
     private String tel;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;

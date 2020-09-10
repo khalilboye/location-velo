@@ -17,6 +17,7 @@ public class ClientMapper {
         client.setPrenom(clientDto.getPrenom());
         client.setAdresse(clientDto.getAdresse());
         client.setTel(clientDto.getTel());
+        client.setEmail(clientDto.getEmail());
 
         return client ;
 
@@ -33,6 +34,7 @@ public class ClientMapper {
             clientDto.setPrenom(client.getPrenom());
             clientDto.setAdresse(client.getAdresse());
             clientDto.setTel(client.getTel());
+            clientDto.setEmail(client.getEmail());
 
             clientDtos.add(clientDto);
         }
@@ -48,6 +50,7 @@ public class ClientMapper {
         clientDto.setPrenom(client.get().getPrenom());
         clientDto.setAdresse(client.get().getAdresse());
         clientDto.setTel(client.get().getTel());
+        clientDto.setEmail(client.get().getEmail());
 
         return clientDto ;
 

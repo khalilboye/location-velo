@@ -27,8 +27,6 @@ public class CommandeMapper {
         Optional<Client> client = clientServices.findClientById(commandeDto.getClient().getId());
 
         Optional<Reparation> reparation = commandeService.findReparationById(commandeDto.getReparation().getId());
-
-
         Commande commande = new Commande();
         commande.setLibelle(commandeDto.getLibelle());
         commande.setNumeroCommende(generateNumber());

@@ -48,7 +48,6 @@ public class ClientController {
                // .orElseThrow(() -> new ClientNotFoundException(tel));
     }
 
-
      @DeleteMapping("/client/{id}")
         void deleteBook(@PathVariable Long id) {
             clientServices.deleteById(id);
